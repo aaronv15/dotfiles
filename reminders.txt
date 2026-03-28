@@ -12,3 +12,13 @@ sudo pacman -Runs <package>
 ====================
 
 pacman logs: /var/log/pacman.log
+
+====================
+
+generate a new ssh key:
+ssh-keygen -t ed25519 -C "<some comment>"
+
+add to ~/.ssh/config
+Host <hostname>
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/<saved name>

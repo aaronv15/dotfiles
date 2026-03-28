@@ -28,3 +28,6 @@ ln -sT ~/.dotfiles/foot ~/.config/foot
 ln -sT ~/.dotfiles/git ~/.config/git
 ln -sT ~/.dotfiles/sway ~/.config/sway
 ln -sT ~/.dotfiles/keyd /etc/keyd
+
+# Generate ssh keys
+echo "Generate ssh keys"
