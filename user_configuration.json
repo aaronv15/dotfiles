@@ -1,0 +1,76 @@
+{
+    "app_config": {
+        "audio_config": {
+            "audio": "pulseaudio"
+        },
+        "bluetooth_config": {
+            "enabled": true
+        }
+    },
+    "archinstall-language": "English",
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Grub",
+        "removable": true,
+        "uki": false
+    },
+    "custom_commands": [],
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_GB.UTF-8"
+    },
+    "network_config": {
+        "type": "iso"
+    },
+    "ntp": true,
+    "packages": [
+        "base-devel",
+        "eza",
+        "fd",
+	"firefox",
+        "fzf",
+        "github-cli",
+        "neovim",
+        "ripgrep",
+        "rustup",
+        "tmux",
+        "uv",
+        "zoxide",
+        "zsh",
+        "lazygit",
+	"man-db",
+	"wl-clipboard",
+	"cliphist",
+	"wofi",
+	"keyd",
+	"starship"
+    ],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": "All open-source",
+        "greeter": "ly",
+        "profile": {
+            "custom_settings": {
+                "Sway": {
+                    "seat_access": "polkit"
+                }
+            },
+            "details": [
+                "Sway"
+            ],
+            "main": "Desktop"
+        }
+    },
+    "script": null,
+    "services": [],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": true
+    },
+    "timezone": "Africa/Johannesburg",
+    "version": "3.0.15"
+}
