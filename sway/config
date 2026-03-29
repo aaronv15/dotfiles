@@ -4,10 +4,13 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+# set $mod Mod3
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -16,12 +19,15 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu wofi --show=run
+set $menu fuzzel
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# Font
+font pango:DejaVu Sans 18
 #
 # Example configuration:
 #
@@ -215,24 +221,41 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while bash ~/.config/sway/swaybar.sh; do sleep 1; done
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+exec_always pkill waybar; waybar
 
 include /etc/sway/config.d/*
 
 # start cliphist
 # exec wl-paste --watch cliphist store
 exec_always pkill wl-paste; wl-paste --watch cliphist store
-bindsym $mod+Shift+v exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
-bindsym $mod+Shift+d exec cliphist list | wofi --dmenu | cliphist delete
+bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+bindsym $mod+Shift+d exec cliphist list | fuzzel --dmenu | cliphist delete
+
+# Trackpad
+input "type:touchpad" {
+   tap enabled
+   natural_scroll enabled
+   dwt enabled        # disable while typing
+    # middle_emulation enabled # for a middle click??
+   xkb_options lv3:ralt_switch
+}
+
+## Input configuration
+input type:keyboard {
+
+  # Modified XKB layout to add AltGr to Mod4. This sources the file in ~/.xkb/symbols/sep_alt_and_altgr.
+  xkb_layout "sep_alt_and_altgr"
+
+}

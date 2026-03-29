@@ -1,0 +1,10 @@
+// Writing our own custom XKB layout to add AltGr to Mod4
+default partial modifier_keys
+
+xkb_symbols "basic" {
+
+    include "us(basic)"
+
+    name[Group1] = "US Keyboard, Add AltGr to Mod4";
+    modifier_map Mod4 { Alt_R, Super_L, Super_R };
+};
