@@ -233,13 +233,15 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-exec_always pkill waybar; waybar
+
+bar {
+     swaybar_command waybar
+}
 
 include /etc/sway/config.d/*
 
 # start cliphist
-# exec wl-paste --watch cliphist store
-exec_always pkill wl-paste; wl-paste --watch cliphist store
+exec wl-paste --watch cliphist store
 bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 bindsym $mod+Shift+d exec cliphist list | fuzzel --dmenu | cliphist delete
 
