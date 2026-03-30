@@ -20,12 +20,14 @@ sudo pacman -S zip unzip
 # install ranger fm
 sudo pacman -S ranger
 
+#install ter fonts
+sudo pacman -S terminus-font
+
+# update vconsole font
+sudo sed -i '0,/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
+
 # enable keyd
 sudo systemctl enable keyd --now
-
-# replace greetd config
-sudo cp ~/.dotfiles/greetd/config.toml /etc/greetd/config.toml
-sudo cp ~/.dotfiles/greetd/sway-config /etc/greetd/sway-config
 
 # symlinks
 sudo ln -sT ~/.dotfiles/keyd /etc/keyd
@@ -45,6 +47,7 @@ rm ~/Downloads/CascadiaMono.zip
 # Setting up symlinks
 mkdir -p ~/.config
 ln -sT ~/.dotfiles/.zshrc ~/.zshrc
+ln -sT ~/.dotfiles/.zlogin ~/.zlogin
 ln -sT ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 ln -sT ~/.dotfiles/nvim-main ~/.config/nvim

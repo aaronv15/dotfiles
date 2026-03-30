@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.local/share/zsh/.histfile
+HISTFILE="$HOME/.local/share/zsh/.histfile"
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
@@ -11,6 +11,9 @@ zstyle :compinstall filename "~/.zshrc"
 autoload -Uz compinit
 compinit -d "~/.local/share/zsh/.zcompdump"
 # End of lines added by compinstall
+
+# Make sure histfile dir exists
+mkdir -p "$(dirname $HISTFILE)"
 
 setopt APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
