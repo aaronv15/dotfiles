@@ -36,12 +36,14 @@ sudo ln -sT ~/.dotfiles/keyd /etc/keyd
 chsh -s /bin/zsh
 
 # install fonts:
+mkdir -p ~/Downloads
 wget -O ~/Downloads/CascadiaMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
 mkdir -p ~/.local/share/fonts # make font dir if not existing
 unzip ~/Downloads/CascadiaMono.zip -d ~/.local/share/fonts
 rm ~/Downloads/CascadiaMono.zip
 
 # Setting up symlinks
+mkdir -p ~/.config
 ln -sT ~/.dotfiles/.zshrc ~/.zshrc
 ln -sT ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
