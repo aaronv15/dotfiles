@@ -22,3 +22,15 @@ add to ~/.ssh/config
 Host <hostname>
   AddKeysToAgent yes
   IdentityFile ~/.ssh/<saved name>
+
+====================
+
+connect to network with iwctl
+
+iwctl # start iwctl
+device list
+station <dev> scan
+station <dev> get-networks
+station <dev> connect <network name>
+exit
+

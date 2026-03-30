@@ -14,8 +14,11 @@ sudo pacman -S rsync
 # install app picker/launcher fuzzel
 sudo pacman -S fuzzel
 
-# Zip/unzip
+# install zip/unzip
 sudo pacman -S zip unzip
+
+# install ranger fm
+sudo pacman -S ranger
 
 # enable keyd
 sudo systemctl enable keyd --now
@@ -25,6 +28,9 @@ sudo sed -i '0,/FONT=/c\FONT=ter-122b' /etc/vconsole.conf
 
 # replace ly config
 sudo cp ~/.dotfiles/ly/config.ini /etc/ly/config.ini
+
+# symlinks
+ln -sT ~/.dotfiles/keyd /etc/keyd
 
 # ========== User ==========
 
@@ -48,8 +54,8 @@ ln -sT ~/.dotfiles/git ~/.config/git
 ln -sT ~/.dotfiles/sway ~/.config/sway
 ln -sT ~/.dotfiles/fuzzel ~/.config/fuzzel
 ln -sT ~/.dotfiles/waybar ~/.config/waybar
+ln -sT ~/.dotfiles/superfile ~/.config/superfile 
 ln -sT ~/.dotfiles/.xkb ~/.xkb
-ln -sT ~/.dotfiles/keyd /etc/keyd
 
 # Generate ssh keys
 echo "Generate ssh keys"
