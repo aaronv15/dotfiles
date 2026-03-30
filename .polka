@@ -71,9 +71,9 @@ ln -sT ~/.dotfiles/.xkb ~/.xkb
 echo "Generate ssh keys"
 
 # make scripts directory
-mkdir -p ~/.scripts
+mkdir -p ~/Scripts
 
 rustup install stable -c rust-analyzer
 rustup install nightly -c rust-analyzer
 cargo install worst --git https://github.com/aaronv15/worst.git
-worst-switcher --place-config --generate-script ~/Scripts/worst-runner.bash
+worst-switcher setup --place-config --generate-script ~/Scripts/worst-runner.bash
