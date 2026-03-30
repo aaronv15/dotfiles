@@ -29,6 +29,14 @@ sudo sed -i '0,/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
 # enable keyd
 sudo systemctl enable keyd --now
 
+# setup ly
+sudo pacman -S ly
+sudo systemctl disable getty@.service
+sudo systemctl enable ly@tty1.service
+sudo ln -sT /etc/systemd/system/multi-user.target.wants/ly@tty1.service /etc/systemd/system/multi-user.target.wants/autovt@tty1.service
+
+sudo cp ~/.dotfiles/ly/config.ini /etc/ly/config.ini
+
 # symlinks
 sudo ln -sT ~/.dotfiles/keyd /etc/keyd
 
