@@ -25,6 +25,7 @@ sudo systemctl enable keyd --now
 
 # replace greetd config
 sudo cp ~/.dotfiles/greetd/config.toml /etc/greetd/config.toml
+sudo cp ~/.dotfiles/greetd/sway-config /etc/greetd/sway-config
 
 # symlinks
 sudo ln -sT ~/.dotfiles/keyd /etc/keyd
@@ -55,3 +56,11 @@ ln -sT ~/.dotfiles/.xkb ~/.xkb
 
 # Generate ssh keys
 echo "Generate ssh keys"
+
+# make scripts directory
+mkdir -p ~/.scripts
+
+rustup install stable -c rust-analyzer
+rustup install nightly -c rust-analyzer
+cargo install worst --git https://github.com/aaronv15/worst.git
+worst-switcher --place-config --generate-script ~/Scripts/worst-runner.bash

@@ -246,18 +246,16 @@ bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-
 bindsym $mod+Shift+d exec cliphist list | fuzzel --dmenu | cliphist delete
 
 # Trackpad
-input "type:touchpad" {
+input type:touchpad {
+   dwt enabled        # disable while typing
    tap enabled
    natural_scroll enabled
-   dwt enabled        # disable while typing
     # middle_emulation enabled # for a middle click??
    xkb_options lv3:ralt_switch
 }
 
 ## Input configuration
 input type:keyboard {
-
   # Modified XKB layout to add AltGr to Mod4. This sources the file in ~/.xkb/symbols/sep_alt_and_altgr.
   xkb_layout "sep_alt_and_altgr"
-
 }

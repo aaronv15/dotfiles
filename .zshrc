@@ -37,8 +37,10 @@ alias refresh="source ~/.zshrc"
 alias zedit="nvim ~/.zshrc"
 alias vedit="cd ~/.config/nvim/; nvim ~/.config/nvim/init.lua"
 
-# alias worst=". ~/Scripts/worst-runner.bash"
+alias worst=". ~/Scripts/worst-runner.bash"
 alias clip="wl-copy"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+PATH="$PATH:$HOME/.cargo/bin"
