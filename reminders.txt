@@ -20,7 +20,7 @@ ssh-keygen -t ed25519 -C "<some comment>"
 
 add to ~/.ssh/config
 Host <hostname>
-  AddKeysToAgent yes
+  AddKeysToAgent 15M
   IdentityFile ~/.ssh/<saved name>
 
 ====================
