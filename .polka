@@ -64,7 +64,6 @@ rm ~/Downloads/CascadiaMono.zip
 # Setting up symlinks
 mkdir -p ~/.config
 ln -sT ~/.dotfiles/.zshrc ~/.zshrc
-ln -sT ~/.dotfiles/.zlogin ~/.zlogin
 ln -sT ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 ln -sT ~/.dotfiles/nvim-main ~/.config/nvim
