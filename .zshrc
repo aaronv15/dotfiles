@@ -24,7 +24,10 @@ setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 unsetopt SHARE_HISTORY
 
-# Prompt
+# Remove run-help being aliased to man
+unalias run-help
+# Load the run-help zsh module
+autoload run-help
 autoload -Uz colors && colors
 
 alias cls='clear'
