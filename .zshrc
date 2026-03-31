@@ -46,4 +46,5 @@ alias clip="wl-copy"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+export EDITOR=nvim
 PATH="$PATH:$HOME/.cargo/bin"
