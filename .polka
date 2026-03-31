@@ -24,7 +24,7 @@ sudo pacman -S ranger
 sudo pacman -S terminus-font
 
 # update vconsole font
-sudo sed -i '0,/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
+sudo sed -i '/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
 
 # enable keyd
 sudo systemctl enable keyd --now
