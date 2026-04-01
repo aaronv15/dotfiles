@@ -23,6 +23,9 @@ sudo pacman -S ranger
 #install ter fonts
 sudo pacman -S terminus-font
 
+#install luakit browser
+sudo pacman -S luakit
+
 # update vconsole font
 sudo sed -i '/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
 
@@ -63,17 +66,18 @@ rm ~/Downloads/CascadiaMono.zip
 
 # Setting up symlinks
 mkdir -p ~/.config
-ln -sT ~/.dotfiles/.zshrc ~/.zshrc
-ln -sT ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -sfT ~/.dotfiles/.zshrc ~/.zshrc
+ln -sfT ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
-ln -sT ~/.dotfiles/nvim-main ~/.config/nvim
-ln -sT ~/.dotfiles/starship.toml ~/.config/starship.toml
-ln -sT ~/.dotfiles/foot ~/.config/foot
-ln -sT ~/.dotfiles/git ~/.config/git
-ln -sT ~/.dotfiles/sway ~/.config/sway
-ln -sT ~/.dotfiles/fuzzel ~/.config/fuzzel
-ln -sT ~/.dotfiles/waybar ~/.config/waybar
-ln -sT ~/.dotfiles/.xkb ~/.xkb
+ln -sfT ~/.dotfiles/nvim-main ~/.config/nvim
+ln -sfT ~/.dotfiles/starship.toml ~/.config/starship.toml
+ln -sfT ~/.dotfiles/foot ~/.config/foot
+ln -sfT ~/.dotfiles/git ~/.config/git
+ln -sfT ~/.dotfiles/sway ~/.config/sway
+ln -sfT ~/.dotfiles/fuzzel ~/.config/fuzzel
+ln -sfT ~/.dotfiles/waybar ~/.config/waybar
+ln -sfT ~/.dotfiles/luakit ~/.config/luakit
+ln -sfT ~/.dotfiles/.xkb ~/.xkb
 
 # Generate ssh keys
 echo "Generate ssh keys"

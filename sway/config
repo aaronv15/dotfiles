@@ -20,6 +20,8 @@ set $right l
 set $term foot
 # Your preferred application launcher
 set $menu fuzzel
+# Browser
+set $browser firefox
 
 ### Output configuration
 #
@@ -72,6 +74,9 @@ exec swayidle -w \
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start a browser
+    bindsym $mod+Shift+b exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill
