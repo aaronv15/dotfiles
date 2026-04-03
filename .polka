@@ -76,12 +76,8 @@ sudo systemctl disable getty@.service
 sudo systemctl enable ly@tty1.service
 sudo ln -sT /etc/systemd/system/multi-user.target.wants/ly@tty1.service /etc/systemd/system/multi-user.target.wants/autovt@tty1.service
 
-# enable ly on tty2
-sudo systemctl enable ly@tty2.service
-sudo ln -sT /etc/systemd/system/multi-user.target.wants/ly@tty2.service /etc/systemd/system/multi-user.target.wants/autovt@tty2.service
-
 # enable getty on remaining tty's
-sudo systemctl enable getty@tty{3..6}.service
+sudo systemctl enable getty@tty{2..6}.service
 
 sudo cp ~/.dotfiles/ly/config.ini /etc/ly/config.ini
 

@@ -73,6 +73,13 @@ exec swayidle -w \
 #
 # Basics:
 #
+    bindsym $mod+F1 exec sudo chvt 1
+    bindsym $mod+F2 exec sudo chvt 2
+    bindsym $mod+F3 exec sudo chvt 3
+    bindsym $mod+F4 exec sudo chvt 4
+    bindsym $mod+F5 exec sudo chvt 5
+    bindsym $mod+F6 exec sudo chvt 6
+
     # Start a terminal
     bindsym $mod+Return exec $term
 

@@ -34,3 +34,9 @@ station <dev> get-networks
 station <dev> connect <network name>
 exit
 
+====================
+
+add /usr/sbin/chvt to sudoers file
+
+sudo visudo /etc/sudoers.d/<user>
+: <user> ALL=(ALL) NOPASSWD: /usr/sbin/chvt
