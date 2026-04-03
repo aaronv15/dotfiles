@@ -26,8 +26,29 @@ sudo pacman -S terminus-font
 #install luakit browser
 sudo pacman -S luakit
 
+#install libnotify
+sudo pacman -S libnotify
+
+#install mako as notification daemon
+sudo pacman -S mako
+
 # update vconsole font
-sudo sed -i '/FONT=/c\FONT=ter-128b' /etc/vconsole.conf
+sudo sed \
+   --regexp-extended \
+   --in-place=.bak  \
+   --expression='/^FONT=/c\FONT=ter-128b' \
+   /etc/vconsole.conf
+
+# modify grub config
+sudo sed \
+   --regexp-extended \
+   --in-place=.bak \
+   --expression='/^GRUB_TIMEOUT_STYLE=/c\GRUB_TIMEOUT_STYLE=countdown' \
+   --expression='/^GRUB_CMDLINE_LINUX_DEFAULT/s/ ?quiet//' \
+   /etc/default/grub
+
+# update grub to use modified config
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # enable keyd
 sudo systemctl enable keyd --now
@@ -68,19 +89,22 @@ rm ~/Downloads/CascadiaMono.zip
 mkdir -p ~/.config
 ln -sfT ~/.dotfiles/.zshrc ~/.zshrc
 ln -sfT ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -sfT ~/.dotfiles/.xkb ~/.xkb
 
 ln -sfT ~/.dotfiles/nvim-main ~/.config/nvim
 ln -sfT ~/.dotfiles/starship.toml ~/.config/starship.toml
 ln -sfT ~/.dotfiles/foot ~/.config/foot
-ln -sfT ~/.dotfiles/git ~/.config/git
 ln -sfT ~/.dotfiles/sway ~/.config/sway
 ln -sfT ~/.dotfiles/fuzzel ~/.config/fuzzel
 ln -sfT ~/.dotfiles/waybar ~/.config/waybar
 ln -sfT ~/.dotfiles/luakit ~/.config/luakit
-ln -sfT ~/.dotfiles/.xkb ~/.xkb
+ln -sfT ~/.dotfiles/mako ~/.config/mako
+
+# Configure git
+zsh ~/.dotfiles/setup_git.bash
 
 # Generate ssh keys
-echo "Generate ssh keys"
+HOSTNAME=github.com USER=git AKtoA=15m zsh ~/.dotfiles/setup_ssh.bash
 
 # make scripts directory
 mkdir -p ~/Scripts
