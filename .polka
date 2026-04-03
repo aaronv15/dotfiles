@@ -32,6 +32,9 @@ sudo pacman -S libnotify
 #install mako as notification daemon
 sudo pacman -S mako
 
+# Mirror stuff
+sudo pacman -S reflector
+
 # update vconsole font
 sudo sed \
    --regexp-extended \
@@ -49,6 +52,18 @@ sudo sed \
 
 # update grub to use modified config
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# Modify reflector args
+sudo sed \
+   --regexp-extended \
+   --in-place=.bak \
+   --expression='/^# --country/c\--country "South Africa"' \
+   /etc/xdg/reflector/reflector.conf
+
+# Enable reflector
+sudo systemctl enable reflector.timer
+sudo systemctl start reflector.timer
+
 
 # enable keyd
 sudo systemctl enable keyd --now
