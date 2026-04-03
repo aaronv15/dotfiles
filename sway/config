@@ -4,6 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+set $self_dir "$HOME/.config/sway"
 
 ### Variables
 #
@@ -42,9 +43,9 @@ font pango:DejaVu Sans 18
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 900 'swaylock -f -c 000000' \
+         timeout 900 'zsh $self_dir/sway_lock.bash' \
          timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'zsh $self_dir/sway_lock.bash'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -95,9 +96,11 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-
-    bindsym $mod+Shift+e exec zsh $HOME/.config/sway/terminate_session.bash
+    bindsym $mod+Shift+e exec zsh $self_dir/terminate_session.bash
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+n exec zsh $self_dir/sway_lock.bash
+
 #
 # Moving around:
 #
