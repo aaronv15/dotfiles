@@ -7,5 +7,5 @@ printf 'No\nYes' \
    | read response
 
 if [[ "$response" == "Yes" ]]; then
-   exit sway
+   swaymsg exit
 fi
