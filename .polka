@@ -1,7 +1,6 @@
-# ========== System ==========
-# # waybar # apparently already installed?
-# sudo pacman -S waybar
+# vim:filetype=bash
 
+# ========== System ==========
 # on a laptop install tlp for power management
 if [[ -z $LAPTOP ]]; then
    sudo pacman -S tlp ethtool smartmontools
@@ -47,6 +46,7 @@ sudo sed \
    --regexp-extended \
    --in-place=.bak \
    --expression='/^GRUB_TIMEOUT_STYLE=/c\GRUB_TIMEOUT_STYLE=countdown' \
+   --expression='/^GRUB_TIMEOUT=/c\GRUB_TIMEOUT=2' \
    --expression='/^GRUB_CMDLINE_LINUX_DEFAULT/s/ ?quiet//' \
    /etc/default/grub
 
